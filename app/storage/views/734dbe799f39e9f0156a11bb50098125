@@ -1,0 +1,1 @@
+<a href="clientes/<?php echo $cliente['Id']; ?>" class=""><?php echo $cliente['Razon']; ?></a>

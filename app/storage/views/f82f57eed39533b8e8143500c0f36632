@@ -1,0 +1,4 @@
+<?php echo HTML::script('jquery/js/jquery-1.11.0.min.js'); ?>
+<?php echo HTML::script('bootstrap/js/bootstrap.min.js'); ?>
+<?php echo HTML::script('datatables/js/jquery.dataTables.js'); ?>
+<?php echo HTML::script('datatables/js/datatables.bootstrap.js'); ?>

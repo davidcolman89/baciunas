@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <?php echo $__env->make('header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</head>
+<body>
+    <?php echo $__env->make('menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<div class="container-fluid">
+		<div class="row">
+			<!--
+            <div class="col-sm-3 col-md-2 sidebar">
+				<?php echo $__env->yieldContent('contenido_izquierdo'); ?>
+			</div>
+			-->
+			<div class="col-md-12 main">
+                <?php echo $__env->yieldContent('contenido'); ?>
+			</div>
+		</div>
+	</div>
+</body>
+<footer>
+    <?php echo $__env->make('footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->yieldContent('js'); ?>
+</footer>
+</html>

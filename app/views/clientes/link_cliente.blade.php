@@ -1,0 +1,1 @@
+<a href="clientes/{{$cliente['Id']}}" class="">{{$cliente['Razon']}}</a>
