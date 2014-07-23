@@ -11,4 +11,12 @@ class CtaCteCliente extends Eloquent {
 	protected $table = 'CtasCtes_Clien';
 
 
+    public function talonario()
+    {
+
+        return $this->hasOne('Talonario','Id','IdTalonario');
+
+    }
+
+
 }

@@ -34,18 +34,27 @@ class CtasCtesClienteController extends \BaseController {
 		//
 	}
 
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function show($id)
 	{
 
+        $ctacte = CtaCteCliente::find($id);
+        $cliente = Cliente::find($ctacte->IdCliente);
 
+        if(empty($cliente->IdRubroEmpresario)){
+            $bCuentaMadre = true;
+        }else{
+            $bCuentaMadre = false;
+        }
 
+        $parametros = array();
+
+        if($ctacte->talonario->TipoComp=='FAC'){
+            $layout = 'ctasctes.factura.vista';
+            return View::make($layout,compact('ctacte','cliente','bCuentaMadre'));
+        }else{
+            $layout = 'ctasctes.comprobante.vista';
+            return View::make($layout,compact('ctacte','cliente','bCuentaMadre'));
+        }
 
 	}
 
