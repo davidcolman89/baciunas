@@ -13,10 +13,21 @@ class CtaCteCliente extends Eloquent {
 
     public function talonario()
     {
-
         return $this->hasOne('Talonario','Id','IdTalonario');
-
     }
 
+    public function relaciones()
+    {
+        return $this->hasMany('CtaCteClienteRelacion','IdRelacion','Id');
+    }
 
+    public function origenes()
+    {
+        return $this->hasMany('CtaCteClienteRelacion','IdOrigen','Id');
+    }
+
+    public function cobranzas()
+    {
+        return $this->hasMany('Cobranza','IDCobranza','IDCobranza');
+    }
 }

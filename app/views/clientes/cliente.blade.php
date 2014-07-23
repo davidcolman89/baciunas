@@ -1,4 +1,4 @@
-@extends('index')
+@extends('index2')
 @section('contenido')
 <h1 class="page-header">{{ $cliente->Razon }}</h1>
 <div class="row">

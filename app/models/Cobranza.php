@@ -10,5 +10,10 @@ class Cobranza extends Eloquent{
 	 */
 	protected $table = 'Cobranzas';
 
+    public function items()
+    {
+        return $this->hasMany('CobranzaItems','IdCobranza','IDCobranza');
+    }
+
 
 }

@@ -46,15 +46,8 @@ class CtasCtesClienteController extends \BaseController {
             $bCuentaMadre = false;
         }
 
-        $parametros = array();
-
-        if($ctacte->talonario->TipoComp=='FAC'){
-            $layout = 'ctasctes.factura.vista';
-            return View::make($layout,compact('ctacte','cliente','bCuentaMadre'));
-        }else{
-            $layout = 'ctasctes.comprobante.vista';
-            return View::make($layout,compact('ctacte','cliente','bCuentaMadre'));
-        }
+        $layout = 'ctasctes.vista';
+        return View::make($layout,compact('ctacte','cliente','bCuentaMadre'));
 
 	}
 
@@ -94,7 +87,7 @@ class CtasCtesClienteController extends \BaseController {
 		//
 	}
 
-    public function listado($idCliente)
+    public function getListado($idCliente)
     {
         $cliente = Cliente::find($idCliente);
 
@@ -122,6 +115,54 @@ class CtasCtesClienteController extends \BaseController {
 
 
         return array('data'=>$listado);
+
+    }
+
+    public function getRelaciones($id)
+    {
+        $array = array();
+        $relaciones = CtaCteClienteRelacion::where('IdRelacion','=',$id)->get();
+
+        if($relaciones->isEmpty()){
+        #FAC
+
+            $relaciones = CtaCteClienteRelacion::where('IdOrigen','=',$id)->get();
+
+            if (!$relaciones->isEmpty()) {
+
+                foreach ($relaciones as $relacion) {
+
+                    $ctacteRelacionada = CtaCteCliente::find($relacion->IdRelacion);
+
+                    $array[] = [
+                        'ctacte_relacionada_id' => $ctacteRelacionada->Id,
+                        'FechaRel' => $relacion->FechaRel,
+                        'TipoDocumento' => $ctacteRelacionada->talonario->Talonario,
+                        'Numero' => link_to_route('ctasCtesCli.show',$ctacteRelacionada->Numero,$relacion->IdRelacion),
+                        'Aplicado' => $relacion->Aplicado,
+                    ];
+                }
+
+            }
+
+        }else{
+        #REC
+
+            foreach ($relaciones as $relacion) {
+                $ctacteRelacionada = CtaCteCliente::find($relacion->IdOrigen);
+
+                $array[] = [
+                    'ctacte_relacionada_id' => $ctacteRelacionada->Id,
+                    'FechaRel' => $relacion->FechaRel,
+                    'TipoDocumento' => $ctacteRelacionada->talonario->Talonario,
+                    'Numero' => link_to_route('ctasCtesCli.show',$ctacteRelacionada->Numero,$relacion->IdOrigen),
+                    'Aplicado' => $relacion->Aplicado,
+                ];
+            }
+
+        }
+
+        return array('data'=>$array);
 
     }
 

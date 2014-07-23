@@ -1,4 +1,4 @@
-@extends('index')
+@extends('index2')
 @section('contenido')
 <h1 class="page-header">
     <a href="{{ URL::route('clientes.show',$cliente->Id) }}">{{ $cliente->Razon }}</a>
