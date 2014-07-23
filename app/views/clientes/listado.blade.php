@@ -1,7 +1,5 @@
 @extends('index')
 @section('contenido')
-
-
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="dt-clientes">
     <thead>
     <tr>
@@ -10,7 +8,6 @@
     </tr>
     </thead>
 </table>
-
 @stop
 @section('js')
 <script type="text/javascript" >
@@ -19,8 +16,8 @@
             "bProcessing" : true,
             "sAjaxSource" : "{{URL::route('clientes.listado')}}",
             "aoColumns" : [
-                {"mData" : "id"},
-                {"mData" : "razon"}
+                {"data" : "id"},
+                {"data" : "razon"}
             ],
             "language": {
                 "url": "{{URL::asset('datatables/json/dataTables.lang.es.json')}}"

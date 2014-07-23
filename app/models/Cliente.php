@@ -11,54 +11,74 @@ class Cliente extends Eloquent
      */
     protected $table = 'Clientes';
 
-    public function cuentacorriente()
+    public function cuentasCorrientes()
     {
         return $this->hasMany('CtaCteCliente', 'IdCliente', 'Id');
     }
 
+    public function vistaCuentasCorrientes()
+    {
+        return $this->hasMany('CtaCteClienteVista', 'IdCliente', 'Id');
+    }
+
     public function vendedor()
     {
-        return $this->hasMany('Vendedor', 'Id', 'IdCobrador');
+        return $this->hasOne('Vendedor', 'Id', 'IdCobrador');
     }
 
     public function facturaProvincia()
     {
-        return $this->hasMany('Provincia', 'Id', 'Fact_cProvincia');
+        return $this->hasOne('Provincia', 'Id', 'Fact_cProvincia');
     }
 
     public function facturaLocalidad()
     {
-        return $this->hasMany('Localidad', 'Id', 'Fact_cLocalidad');
+        return $this->hasOne('Localidad', 'Id', 'Fact_cLocalidad');
+    }
+
+    public function servicios()
+    {
+        return $this->hasMany('Servicio', 'IdCliente', 'Id');
     }
 
     public function serviciosProvincia()
     {
-        return $this->hasMany('Provincia', 'Id', 'Prod_cProvincia');
+        return $this->hasOne('Provincia', 'Id', 'Prod_cProvincia');
     }
 
     public function serviciosLocalidad()
     {
-        return $this->hasMany('Localidad', 'Id', 'Prod_cLocalidad');
+        return $this->hasOne('Localidad', 'Id', 'Prod_cLocalidad');
+    }
+
+    public function cobranzaProvincia()
+    {
+        return $this->hasOne('Provincia', 'Id', 'Cob_cProvincia');
+    }
+
+    public function cobranzaLocalidad()
+    {
+        return $this->hasOne('Localidad', 'Id', 'Cob_cLocalidad');
     }
 
     public function chofer()
     {
-        return $this->hasMany('Chofer', 'Id', 'IdChofer');
+        return $this->hasOne('Chofer', 'Id', 'IdChofer');
     }
 
     public function rubroEmpresario()
     {
-        return $this->hasMany('RubroEmpresario', 'Id', 'IdRubroEmpresario');
+        return $this->hasOne('RubroEmpresario', 'Id', 'IdRubroEmpresario');
     }
 
     public function categoriaIVA()
     {
-        return $this->hasMany('CategoriaIva', 'Id', 'IdCategIVA');
+        return $this->hasOne('CategoriaIva', 'Id', 'IdCategIVA');
     }
 
     public function condicionVenta()
     {
-        return $this->hasMany('CondicionVenta', 'Id', 'IdCondVenta');
+        return $this->hasOne('CondicionVenta', 'Id', 'IdCondVenta');
     }
 
     public function tipoCliente()
@@ -68,12 +88,12 @@ class Cliente extends Eloquent
 
     public function usuarioAlta()
     {
-        return $this->hasMany('User', 'Id', 'cUsuario');
+        return $this->hasOne('User', 'Id', 'cUsuario');
     }
 
     public function usuarioModificacion()
     {
-        return $this->hasMany('User', 'Id', 'cUsuario_Mod');
+        return $this->hasOne('User', 'Id', 'cUsuario_Mod');
     }
 
 }

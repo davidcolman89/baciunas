@@ -1,10 +1,8 @@
 @extends('index')
 @section('contenido')
-
-<h1 class="page-header">razon</h1>
+<h1 class="page-header">{{ $cliente->Razon }}</h1>
 <div class="row">
     <div class="col-xs-12">
-        <!-- Nav tabs -->
         <ul class="nav nav-tabs">
             <li class="active"><a href="#cliente_info" data-toggle="tab">Datos Generales</a></li>
             <li><a href="#cliente_comerciales" data-toggle="tab">Datos Comerciales</a></li>
@@ -14,41 +12,42 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane active" id="cliente_info">
-                datos generales
+                @include('clientes.datos_generales')
             </div>
 
             <div class="tab-pane" id="cliente_comerciales">
-                datos comerciales
+                @include('clientes.datos_comerciales')
             </div>
 
             <div class="tab-pane" id="cliente_obs">
-                observaciones
+                @include('clientes.datos_observaciones')
             </div>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12"><hr></div>
+    <div class="col-xs-12">
+        <hr>
+    </div>
 </div>
 <div class="row show-grid">
     <div class="col-xs-12">
         <table class="table table-responsive">
             <tr>
                 <td>Fecha Alta</td>
-                <td></td>
+                <td>{{ $cliente->FechaAlta }}</td>
                 <td>Fecha Ult. Mod.</td>
-                <td></td>
+                <td>{{ $cliente->FechaMod }}</td>
                 <td>Fecha Inhabilitacion</td>
-                <td></td>
+                <td>{{ $cliente->FechaInhab }}</td>
             </tr>
             <tr>
                 <td>Usuario:</td>
-                <td></td>
+                <td>{{ $cliente->usuarioAlta->Nombre }}</td>
                 <td>Usuario:</td>
-                <td></td>
+                <td>{{ $cliente->usuarioModificacion->Nombre or '' }}</td>
                 <td colspan="2">&nbsp;</td>
             </tr>
         </table>
@@ -58,17 +57,26 @@
 @stop
 @section('js')
 <script type="application/javascript">
-    document.onkeyup=function(event) {
+    document.onkeyup = function (event) {
         event = event || window.event;
 
         var e = event.keyCode;
 
-        if(e == 120){
-            alert('ir a ctasctes');
-            //window.location.href = "#";
-        }else{
+        if (e == 120) {
+            window.location.href = "{{ URL::route('ctasCtesCli.cliente',$cliente->Id) }}";
+        } else {
             console.log(e);
         }
     }
+
+    $(function () {
+
+        $(".btnVolver").click(function (e) {
+            e.preventDefault();
+            var sHref = $(this).attr("data-href");
+            window.location.href = sHref;
+        });
+
+    });
 </script>
 @stop

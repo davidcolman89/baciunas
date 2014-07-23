@@ -43,8 +43,17 @@ class ClientesController extends \BaseController {
 	 */
 	public function show($id)
 	{
+
+        $estados = [
+            1=>['id'=>1,'estado'=>'Normal'],
+            2=>['id'=>2,'estado'=>'Suspendido'],
+            3=>['id'=>3,'estado'=>'Inactivo'],
+        ];
+
         $cliente = Cliente::find($id);
-		return View::make('clientes.cliente',compact('cliente'));
+
+		return View::make('clientes.cliente',compact('cliente','estados'));
+
 	}
 
 
@@ -85,19 +94,18 @@ class ClientesController extends \BaseController {
 
     public function showAll()
     {
-
         $clientes = Cliente::all();
 
         foreach ($clientes as $cliente) {
 
             $id = $cliente['Id'];
-            $razon = View::make('clientes.link_cliente',compact('cliente'))->render();
+            $razon = link_to_route("clientes.show", $cliente['Razon'],$id);
 
             $listado[] = compact('id','razon');
 
         }
-
-        return array('aaData' => $listado);
+        //dd($listado);
+        return array('data'=>$listado);
 
     }
 

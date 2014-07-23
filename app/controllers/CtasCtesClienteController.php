@@ -9,7 +9,7 @@ class CtasCtesClienteController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+
 	}
 
 
@@ -43,7 +43,10 @@ class CtasCtesClienteController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+
+
+
+
 	}
 
 
@@ -81,6 +84,37 @@ class CtasCtesClienteController extends \BaseController {
 	{
 		//
 	}
+
+    public function listado($idCliente)
+    {
+        $cliente = Cliente::find($idCliente);
+
+        return View::make('ctasctes.listado',compact('cliente'));
+    }
+
+    public function showAll($idCliente)
+    {
+        $listado = array();
+        $ctasctes = CtaCteClienteVista::where('IdCliente','=',$idCliente)->get();
+
+        foreach($ctasctes as $ctacte)
+        {
+            $listado[] = array(
+                'Id'           => $ctacte->Id,
+                'TipoComp'     => $ctacte->TipoComp,
+                'Numero'       => link_to_route("ctasCtesCli.show", $ctacte->Numero,$ctacte->Id),
+                'FechaIng'     => $ctacte->FechaIng,
+                'Debe'         => $ctacte->Debe,
+                'TotalDebe'    => $ctacte->TotalDebe,
+                'Haber'        => $ctacte->Haber,
+                'TotalHaber'   => $ctacte->TotalHaber,
+            );
+        }
+
+
+        return array('data'=>$listado);
+
+    }
 
 
 }
