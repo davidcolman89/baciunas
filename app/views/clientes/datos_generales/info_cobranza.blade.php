@@ -42,8 +42,3 @@
     <div class="col-xs-2">Hoja Filcar</div>
     <div class="col-xs-4">{{ $cliente->HojaFilcar }}</div>
 </div>
-<div class="row show-grid">
-    <div class="col-xs-4">
-        <button type="button" class="btn btn-primary btn-xs btnVolver" data-href="{{ URL::route('ctasCtesCli.cliente', $cliente->Id) }}">Cuenta Corriente</button>
-    </div>
-</div>

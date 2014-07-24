@@ -1,6 +1,9 @@
 @extends('index2')
+@section('url_historial')
+<li>{{ link_to_route('home','Inicio') }}</li>
+<li>{{ $cliente->Razon }}</li>
+@stop
 @section('contenido')
-<h1 class="page-header">{{ $cliente->Razon }}</h1>
 <div class="row">
     <div class="col-xs-12">
         <ul class="nav nav-tabs">
@@ -71,7 +74,7 @@
 
     $(function () {
 
-        $(".btnVolver").click(function (e) {
+        $(".btn-ver-ctacte").click(function (e) {
             e.preventDefault();
             var sHref = $(this).attr("data-href");
             window.location.href = sHref;

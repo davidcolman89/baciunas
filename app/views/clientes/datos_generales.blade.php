@@ -3,9 +3,12 @@
 </div>
 <div class="row show-grid">
     <div class="col-xs-2">Nro Cliente:</div>
-    <div class="col-xs-4">{{ $cliente->Id }}</div>
+    <div class="col-xs-2">{{ $cliente->Id }}</div>
     <div class="col-xs-2">Nombre Comercial:</div>
-    <div class="col-xs-4">{{ $cliente->Comercial }}</div>
+    <div class="col-xs-2">{{ $cliente->Comercial }}</div>
+    <div class="col-xs-4">
+        <button type="button" class="btn btn-primary btn-ver-ctacte" data-href="{{ URL::route('ctasCtesCli.cliente', $cliente->Id) }}">Cuenta Corriente</button>
+    </div>
 </div>
 <div class="row">
     <div class="col-xs-12"><hr></div>

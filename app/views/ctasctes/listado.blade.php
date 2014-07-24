@@ -1,8 +1,10 @@
 @extends('index2')
+@section('url_historial')
+<li>{{ link_to_route('home','Inicio') }}</li>
+<li>{{ link_to_route('clientes.show',$cliente->Razon,$cliente->Id) }}</li>
+<li>Cuenta Corriente</li>
+@stop
 @section('contenido')
-<h1 class="page-header">
-    <a href="{{ URL::route('clientes.show',$cliente->Id) }}">{{ $cliente->Razon }}</a>
-</h1>
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="tableCliCtaCte">
     <thead>
     <tr>
