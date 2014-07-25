@@ -1,11 +1,16 @@
 @extends('index2')
 @section('url_historial')
 <li>{{ link_to_route('home','Inicio') }}</li>
+<li>{{ link_to_route('clientes.listado','Clientes') }}</li>
 <li>{{ link_to_route('clientes.show',$cliente->Razon,$cliente->Id) }}</li>
 <li>{{ link_to_route('ctasCtesCli.cliente','Cuenta Corriente',$cliente->Id) }}</li>
 <li>Comprobante #{{ $ctacte->Id }}</li>
 @stop
 @section('contenido')
+
+{{ $json }}
+
+
 <div class="row">
     <div class="col-md-12">
         <div class="row">

@@ -1,6 +1,7 @@
 @extends('index2')
 @section('url_historial')
 <li>{{ link_to_route('home','Inicio') }}</li>
+<li>{{ link_to_route('clientes.listado','Clientes') }}</li>
 <li>{{ link_to_route('clientes.show',$cliente->Razon,$cliente->Id) }}</li>
 <li>Cuenta Corriente</li>
 @stop
@@ -37,11 +38,12 @@
                 {"data" : "Haber"},
                 {"data" : "TotalHaber"},
             ],
+            "scrollX":true,
             "language": {
                 "url": "{{URL::asset('datatables/json/dataTables.lang.es.json')}}"
             },
             "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todo"]],
-            "iDisplayLength" : -1
+            "iDisplayLength" : 10
         });
     });
 </script>
