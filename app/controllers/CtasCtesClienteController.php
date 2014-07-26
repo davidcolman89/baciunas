@@ -39,7 +39,13 @@ class CtasCtesClienteController extends \BaseController {
 
         $ctacte = CtaCteCliente::find($id);
         $cliente = Cliente::find($ctacte->IdCliente);
-        $json = Response::json($ctacte->cobranzas());
+
+
+        if(!empty($ctacte->IDCobranza)){
+            $items = $ctacte->cobranza->items()->get();
+        }else{
+            $items = $ctacte->factura->items()->get();
+        }
 
         if(empty($cliente->IdRubroEmpresario)){
             $bCuentaMadre = true;
@@ -48,7 +54,7 @@ class CtasCtesClienteController extends \BaseController {
         }
 
         $layout = 'ctasctes.vista';
-        return View::make($layout,compact('ctacte','cliente','bCuentaMadre','json'));
+        return View::make($layout,compact('ctacte','cliente','bCuentaMadre','items'));
 
 	}
 

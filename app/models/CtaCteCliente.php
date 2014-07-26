@@ -26,8 +26,14 @@ class CtaCteCliente extends Eloquent {
         return $this->hasMany('CtaCteClienteRelacion','IdOrigen','Id');
     }
 
-    public function cobranzas()
+    public function cobranza()
     {
-        return $this->hasMany('Cobranza','IDCobranza','IDCobranza');
+        return $this->hasOne('Cobranza','IDCobranza','IDCobranza');
     }
+
+    public function factura()
+    {
+        return $this->hasOne('Factura','Id','IDFactura');
+    }
+
 }

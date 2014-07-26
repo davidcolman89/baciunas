@@ -8,9 +8,6 @@
 @stop
 @section('contenido')
 
-{{ $json }}
-
-
 <div class="row">
     <div class="col-md-12">
         <div class="row">
@@ -24,7 +21,7 @@
                     <div class="col-md-3">{{ $cliente->Fact_Direccion }}</div>
                     <div class="col-md-3">{{ $cliente->condicionVenta->Condicion }}</div>
                     <div class="col-md-3">{{ $cliente->categoriaIVA->CategoriaIVA}}</div>
-                    <div class="col-md-3">{{ $cliente->CUIT }}cuit</div>
+                    <div class="col-md-3">{{ $cliente->CUIT }}</div>
                 </div>
                 <div class="row  show-grid">
                     <div class="col-md-3">{{ $cliente->facturaLocalidad->Localidad }}</div>
@@ -53,6 +50,33 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row show-grid">
+            <div class="col-md-12">
+                <h3>Items</h3>
+                <table id="" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Kilos</th>
+                        <th>Detalle</th>
+                        <th>Monto Unit.</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($items as $item)
+                    <tr>
+                        <td>{{ $item->producto->Producto or '' }}</td>
+                        <td>{{ $item->Contenedores  or '' }}</td>
+                        <td>{{ $item->Kilos  or '' }}</td>
+                        <td>{{ $item->NotaFactura  or '' }}</td>
+                        <td>{{ $item->Neto  or ''}}</td>
+                    </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="row show-grid">

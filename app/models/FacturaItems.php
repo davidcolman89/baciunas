@@ -8,7 +8,17 @@ class FacturaItems extends Eloquent{
 	 *
 	 * @var string
 	 */
-	protected $table = 'Factura_Items';
+	protected $table = 'Facturas_Items';
+
+    public function producto()
+    {
+        return $this->hasOne('Producto','Id','IdProducto');
+    }
+
+    public function alicuota()
+    {
+        return $this->hasOne('Alicuota','Id','IdAlicuota');
+    }
 
 
 }

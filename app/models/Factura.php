@@ -10,5 +10,9 @@ class Factura extends Eloquent {
 	 */
 	protected $table = 'Facturas';
 
+    public function items()
+    {
+        return $this->hasMany('FacturaItems','IDFactura','Id');
+    }
 
 }

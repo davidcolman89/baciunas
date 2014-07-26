@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 
 class CobranzaItems extends Eloquent{
@@ -10,5 +10,14 @@ class CobranzaItems extends Eloquent{
 	 */
 	protected $table = 'Cobranzas_Items';
 
+    public function comprobante()
+    {
+        return $this->hasOne('Factura','Id','IdComprobante');
+    }
+
+    public function cuenta()
+    {
+        return $this->hasOne('CuentaContable','Id','IdCuenta');
+    }
 
 }
