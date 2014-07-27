@@ -1,4 +1,7 @@
 @extends('index3')
+@section('pagina_titulo')
+Clientes
+@stop
 @section('url_historial')
 <li>{{ link_to_route('home','Inicio') }}</li>
 <li>Cuentas Corrientes</li>

@@ -1,7 +1,12 @@
 <div id="logo-group">
 
     <!-- PLACE YOUR LOGO HERE -->
-    <span id="logo"> <img src="{{ URL::asset('smartadmin/img/logo.png') }}" alt="SmartAdmin"> </span>
+    <span id="logo">
+        Baciunas
+        <!--
+        <img src="{{ URL::asset('smartadmin/img/logo.png') }}" alt="SmartAdmin">
+         -->
+    </span>
     <!-- END LOGO PLACEHOLDER -->
 
 </div>
@@ -53,11 +58,13 @@
     </ul>
 
     <!-- logout button -->
+    <!--
     <div id="logout" class="btn-header transparent pull-right">
             <span> <a href="{{ URL::asset('smartadmin/login.html') }}" title="Sign Out" data-action="userLogout"
                       data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i
                         class="fa fa-sign-out"></i></a> </span>
     </div>
+    -->
     <!-- end logout button -->
 
     <!-- search mobile button (this is hidden till mobile view port) -->
