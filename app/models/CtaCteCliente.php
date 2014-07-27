@@ -36,4 +36,24 @@ class CtaCteCliente extends Eloquent {
         return $this->hasOne('Factura','Id','IDFactura');
     }
 
+    public function fromDateTime($value)
+    {
+        return $value;
+    }
+
+    public function getFechaIngAttribute($value)
+    {
+        return Fecha::formatMssqlToDate("d/m/Y", $value);
+    }
+
+    public function getFechaDocAttribute($value)
+    {
+        return Fecha::formatMssqlToDate("d/m/Y", $value);
+    }
+
+    public function getFechaContAttribute($value)
+    {
+        return Fecha::formatMssqlToDate("d/m/Y", $value);
+    }
+
 }

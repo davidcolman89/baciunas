@@ -97,4 +97,12 @@ class Cliente extends Eloquent
         return $this->hasOne('User', 'Id', 'cUsuario_Mod');
     }
 
+    public function getEstadoAttribute($value)
+    {
+
+        $row = DB::select('select dbo.f_estados(?) as Estado',array($value));
+
+        return $row[0]->Estado;
+    }
+
 }

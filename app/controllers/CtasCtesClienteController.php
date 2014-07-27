@@ -40,11 +40,12 @@ class CtasCtesClienteController extends \BaseController {
         $ctacte = CtaCteCliente::find($id);
         $cliente = Cliente::find($ctacte->IdCliente);
 
-
         if(!empty($ctacte->IDCobranza)){
             $items = $ctacte->cobranza->items()->get();
+            $valores = $ctacte->cobranza->valores()->get();
         }else{
             $items = $ctacte->factura->items()->get();
+            $valores = array();
         }
 
         if(empty($cliente->IdRubroEmpresario)){
@@ -54,7 +55,7 @@ class CtasCtesClienteController extends \BaseController {
         }
 
         $layout = 'ctasctes.vista';
-        return View::make($layout,compact('ctacte','cliente','bCuentaMadre','items'));
+        return View::make($layout,compact('ctacte','cliente','bCuentaMadre','items','valores'));
 
 	}
 
@@ -116,7 +117,7 @@ class CtasCtesClienteController extends \BaseController {
                 'Debe'         => $ctacte->Debe,
                 'TotalDebe'    => $ctacte->TotalDebe,
                 'Haber'        => $ctacte->Haber,
-                'TotalHaber'   => $ctacte->TotalHaber,
+                'TotalHaber'   => $ctacte->Totalhaber,
             );
         }
 

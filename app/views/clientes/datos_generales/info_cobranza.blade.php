@@ -32,7 +32,7 @@
 </div>
 <div class="row show-grid">
     <div class="col-xs-2">Estado</div>
-    <div class="col-xs-4"></div>
+    <div class="col-xs-4">{{ $cliente->Estado }}</div>
 </div>
 <div class="row show-grid">
     <div class="col-xs-2">Cobrador</div>

@@ -28,5 +28,5 @@
 </div>
 <div class="row show-grid">
     <div class="col-xs-2">Estado</div>
-    <div class="col-xs-4">{{ $estados[$cliente->Estado]['estado'] }}</div>
+    <div class="col-xs-4">{{ $cliente->Estado }}</div>
 </div>

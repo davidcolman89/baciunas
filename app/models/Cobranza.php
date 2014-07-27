@@ -15,5 +15,10 @@ class Cobranza extends Eloquent{
         return $this->hasMany('CobranzaItems','IdCobranza','IDCobranza');
     }
 
+    public function valores()
+    {
+        return $this->hasMany('CobranzaValores','IDCobranza','IDCobranza');
+    }
+
 
 }

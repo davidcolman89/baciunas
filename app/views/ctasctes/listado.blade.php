@@ -9,9 +9,9 @@
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="tableCliCtaCte">
     <thead>
     <tr>
+        <th># Numero</th>
         <th># CtaCte</th>
         <th>TipoComp</th>
-        <th># Numero</th>
         <th>Fecha Ingreso</th>
         <th>Debe</th>
         <th>Total Debe</th>
@@ -29,15 +29,16 @@
             "bProcessing" : true,
             "sAjaxSource" : "{{ URL::route('ctasCtesCli.listado', $cliente->Id) }}",
             "aoColumns" : [
+                {"data" : "Numero"},
                 {"data" : "Id"},
                 {"data" : "TipoComp"},
-                {"data" : "Numero"},
                 {"data" : "FechaIng"},
                 {"data" : "Debe"},
                 {"data" : "TotalDebe"},
                 {"data" : "Haber"},
                 {"data" : "TotalHaber"},
             ],
+            "order": [[ 0, "desc" ]],
             "scrollX":true,
             "language": {
                 "url": "{{URL::asset('datatables/json/dataTables.lang.es.json')}}"

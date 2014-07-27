@@ -10,5 +10,9 @@ class CtaCteClienteRelacion extends Eloquent {
 	 */
 	protected $table = 'CtasCtes_Clien_Relaciones';
 
+    public function getFechaRelAttribute($value)
+    {
+        return Fecha::formatMssqlToDate("Y/m/d", $value);
+    }
 
 }

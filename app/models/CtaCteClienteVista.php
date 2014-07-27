@@ -10,5 +10,9 @@ class CtaCteClienteVista extends Eloquent {
 	 */
 	protected $table = 'vCtasCtes_Clien';
 
+    public function getFechaIngAttribute($value)
+    {
+        return Fecha::formatMssqlToDate("Y/m/d", $value);
+    }
 
 }
