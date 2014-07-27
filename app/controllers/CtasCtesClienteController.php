@@ -175,20 +175,9 @@ class CtasCtesClienteController extends \BaseController {
 
     public function showAllClientes()
     {
-        $clientes = Cliente::all();
-
-        foreach ($clientes as $cliente) {
-
-            $id = $cliente['Id'];
-            $razon = $cliente['Razon'];
-            $accion = link_to_route("ctasCtesCli.cliente", 'Ver CtaCte',$id);
-
-            $listado[] = compact('id','razon','accion');
-
-        }
-        //dd($listado);
-        return array('data'=>$listado);
-
+        $clientes = Cliente::all(['Id as id','Razon as razon'])->toArray();
+        $data = array('data' => $clientes);
+        return $data;
     }
 
 

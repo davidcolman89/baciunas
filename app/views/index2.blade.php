@@ -318,34 +318,15 @@
 
 <![endif]-->
 
-<!-- Demo purpose only -->
-<!--<script src="{{ URL::asset('smartadmin/js/demo.min.js'); }}"></script>-->
-
 <!-- MAIN APP JS FILE -->
 <script src="{{ URL::asset('smartadmin/js/app.min.js'); }}"></script>
 
 <!-- PAGE RELATED PLUGIN(S) -->
+<script src="{{ URL::asset('smartadmin/js/plugin/datatables/jquery.dataTables.min.js'); }}"></script>
+<script src="{{ URL::asset('smartadmin/js/plugin/datatables/dataTables.colVis.min.js'); }}"></script>
+<script src="{{ URL::asset('smartadmin/js/plugin/datatables/dataTables.tableTools.min.js'); }}"></script>
+<script src="{{ URL::asset('smartadmin/js/plugin/datatables/dataTables.bootstrap.min.js'); }}"></script>
 
-<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip -->
-<script src="{{ URL::asset('smartadmin/js/plugin/flot/jquery.flot.cust.min.js'); }}"></script>
-<script src="{{ URL::asset('smartadmin/js/plugin/flot/jquery.flot.resize.min.js'); }}"></script>
-<script src="{{ URL::asset('smartadmin/js/plugin/flot/jquery.flot.tooltip.min.js'); }}"></script>
-
-<!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
-<script src="{{ URL::asset('smartadmin/js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js'); }}"></script>
-<script src="{{ URL::asset('smartadmin/js/plugin/vectormap/jquery-jvectormap-world-mill-en.js'); }}"></script>
-
-<!-- Full Calendar -->
-<script src="{{ URL::asset('smartadmin/js/plugin/fullcalendar/jquery.fullcalendar.min.js'); }}"></script>
-
-
-<div id="divSmallBoxes"></div>
-<div id="divMiniIcons"></div>
-<div id="divbigBoxes"></div>
-<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0"
-    style="display: none;"></ul>
-<div class="jvectormap-label"></div>
-<div id="flotTip" style="display: none; position: absolute;"></div>
 @include('footer')
 @yield('js')
 </body>

@@ -1,7 +1,7 @@
-@extends('index2')
+@extends('index3')
 @section('contenido')
 <div class="jumbotron">
-    <h1>Software de Gestión</h1>
-    <p>Baciunas</p>
+    <h1>Baciunas</h1>
+    <p>Software de Gestión</p>
 </div>
 @stop

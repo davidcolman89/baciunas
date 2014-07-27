@@ -1,7 +1,7 @@
-@extends('index2')
+@extends('index3')
 @section('url_historial')
 <li>{{ link_to_route('home','Inicio') }}</li>
-<li>{{ link_to_route('clientes.listado','Clientes') }}</li>
+<li>{{ link_to_route('clientes.index','Clientes') }}</li>
 <li>{{ $cliente->Razon }}</li>
 @stop
 @section('contenido')

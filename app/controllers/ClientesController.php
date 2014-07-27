@@ -94,20 +94,15 @@ class ClientesController extends \BaseController {
 
     public function showAll()
     {
-        $clientes = Cliente::all();
 
-        foreach ($clientes as $cliente) {
+        $clientes = Cliente::all(['Id as id','Razon as razon'])->toArray();
+        $data = array('data' => $clientes);
 
-            $id = $cliente['Id'];
-            $razon = link_to_route("clientes.show", $cliente['Razon'],$id);
-
-            $listado[] = compact('id','razon');
-
-        }
-        //dd($listado);
-        return array('data'=>$listado);
+        return $data;
 
     }
+
+
 
 
 }

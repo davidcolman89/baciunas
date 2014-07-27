@@ -11,6 +11,7 @@ class Cliente extends Eloquent
      */
     protected $table = 'Clientes';
 
+
     public function cuentasCorrientes()
     {
         return $this->hasMany('CtaCteCliente', 'IdCliente', 'Id');
