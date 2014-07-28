@@ -83,6 +83,29 @@
                     </thead>
                 </table>
             </div>
+            <div class="col-md-12">
+                <table id="" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Neto grabado</th>
+                        <th>Neto no grabado</th>
+                        <th>IVA 21%</th>
+                        <th>IVA 10.5%</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ $ctacte->NetoGravado }}</td>
+                        <td>{{ $ctacte->NetoNoGravado }}</td>
+                        <td>{{ $ctacte->MontoIva1 }}</td>
+                        <td>{{ $ctacte->MontoIva2 }}</td>
+                        <td>{{ $ctacte->Total }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12">
