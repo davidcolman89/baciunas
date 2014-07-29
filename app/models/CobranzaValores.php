@@ -33,4 +33,11 @@ class CobranzaValores extends Eloquent{
         return $this->hasOne('CobranzaItems','IdComprobante','IDDato');
     }
 
+
+    public function getMontoAttribute($value)
+    {
+        //setlocale(LC_MONETARY, 'it_IT');
+        return money_format('%.2n', $value);
+    }
+
 }

@@ -16,7 +16,7 @@
 
     @include('includes_head')
 </head>
-<body class="">
+<body class="minified fixed-header fixed-ribbon">
 <!-- HEADER -->
 <header id="header">@include('panel_header')</header>
 <!-- END HEADER -->

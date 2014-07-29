@@ -20,5 +20,23 @@ class FacturaItems extends Eloquent{
         return $this->hasOne('Alicuota','Id','IdAlicuota');
     }
 
+    public function getNetoAttribute($value)
+    {
+        //setlocale(LC_MONETARY, 'it_IT');
+        return money_format('%.2n', $value);
+    }
+
+    public function getKilosAttribute($value)
+    {
+        //setlocale(LC_MONETARY, 'it_IT');
+        return money_format('%.3n', $value);
+    }
+
+    public function getContenedoresAttribute($value)
+    {
+        //setlocale(LC_MONETARY, 'it_IT');
+        return money_format('%.2n', $value);
+    }
+
 
 }

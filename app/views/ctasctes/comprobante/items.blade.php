@@ -2,20 +2,22 @@
 <table id="" class="table table-striped table-bordered">
     <thead>
     <tr>
-        <th>#Factura</th>
+        <th>idcobranza</th>
+        <th>idcomprobante</th>
         <th>Cuenta</th>
         <th>Importe</th>
     </tr>
     </thead>
     <tbody>
     @foreach ($items as $item)
-        @if($item->IdCuenta > 0)
+
         <tr>
-            <td>{{ $item->IdComprobante }} or '' }}</td>
-            <td>{{ $item->cuenta->Cuenta or ''}}</td>
-            <td>{{ $item->Importe  or '' }}</td>
+            <td>{{ $item->IdCobranza }}</td>
+            <td>{{ $item->IdComprobante or '' }}</td>
+            <td>{{ $item->IdCuenta    or '' }}</td>
+            <td>{{ $item->Importe or '' }}</td>
         </tr>
-        @endif
+
     @endforeach
     </tbody>
 </table>

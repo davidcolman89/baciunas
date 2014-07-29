@@ -41,7 +41,9 @@ return array(
 	|
 	*/
 
-	'table' => 'users',
+	'table' => 'Usuarios',
+    'username' => 'Nombre',
+    'password' => 'Password',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -1,10 +1,16 @@
 <?php
 
 
-Route::get('login', 'AuthController@showLogin');
+    Route::get('/', 'AuthController@showLogin');
+    Route::get('login', 'AuthController@showLogin');
+    // Validamos los datos de inicio de sesión.
+    Route::post('login', 'AuthController@postLogin');
 
-//Route::group(array('before' => 'auth'), function () {
-    Route::get('/', array('as'=>'home','uses'=>'HomeController@showWelcome'));
+Route::group(array('before' => 'auth'), function () {
+
+    Route::get('logout', array('as'=>'logout','uses'=>'AuthController@logOut'));
+
+    Route::get('home', array('as'=>'home','uses'=>'HomeController@showWelcome'));
 
     Route::get('clientes/listado', array('as'=>'clientes.listado','uses'=>'ClientesController@showAll'));
     Route::resource('clientes', 'ClientesController');
@@ -16,8 +22,8 @@ Route::get('login', 'AuthController@showLogin');
     Route::get('ctasCtesCli/listado', array('as'=>'ctasCtesCli.listadoCli','uses'=>'CtasCtesClienteController@showAllClientes'));
     Route::resource('ctasCtesCli', 'CtasCtesClienteController');
 
-    Route::resource('home', 'HomeController');
+    //Route::resource('home', 'HomeController');
 
-//});
+});
 
 Event::listen('404', function () {return Response::error('404');});

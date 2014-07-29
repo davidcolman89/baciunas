@@ -20,4 +20,11 @@ class CobranzaItems extends Eloquent{
         return $this->hasOne('CuentaContable','Id','IdCuenta');
     }
 
+    public function getImporteAttribute($value)
+    {
+        //setlocale(LC_MONETARY, 'it_IT');
+        return money_format('%.2n', $value);
+    }
+
+
 }
