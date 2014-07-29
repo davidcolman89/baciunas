@@ -12,7 +12,7 @@ class CobranzaItems extends Eloquent{
 
     public function comprobante()
     {
-        return $this->hasOne('Factura','Id','IdComprobante');
+        return $this->hasOne('CtaCteCliente','Id','IdComprobante');
     }
 
     public function cuenta()

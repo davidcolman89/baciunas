@@ -56,4 +56,11 @@ class CtaCteCliente extends Eloquent {
         return Fecha::formatMssqlToDate("d/m/Y", $value);
     }
 
+    public function getMonedaLocalAttribute($value)
+    {
+        $row = DB::select('select dbo.f_Moneda(?) as Moneda',array($value));
+
+        return $row[0]->Moneda;
+    }
+
 }

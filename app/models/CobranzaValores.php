@@ -18,12 +18,14 @@ class CobranzaValores extends Eloquent{
         return $row[0]->Tipo;
     }
 
+    /*
     public function getCotizAttribute($value)
     {
         $row = DB::select('select dbo.f_Moneda(?) as Moneda',array((int)$value));
 
         return $row[0]->Moneda;
     }
+    */
 
 
     public function item()

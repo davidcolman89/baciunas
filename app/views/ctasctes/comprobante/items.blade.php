@@ -9,11 +9,13 @@
     </thead>
     <tbody>
     @foreach ($items as $item)
-    <tr>
-        <td>{{ $item->IdComprobante }} {{ $item->comprobante->Numero or '' }}</td>
-        <td>{{ $item->cuenta->Cuenta or ''}}</td>
-        <td>{{ $item->Importe  or '' }}</td>
-    </tr>
+        @if($item->IdCuenta > 0)
+        <tr>
+            <td>{{ $item->IdComprobante }} or '' }}</td>
+            <td>{{ $item->cuenta->Cuenta or ''}}</td>
+            <td>{{ $item->Importe  or '' }}</td>
+        </tr>
+        @endif
     @endforeach
     </tbody>
 </table>

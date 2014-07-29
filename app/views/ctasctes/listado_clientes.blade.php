@@ -4,6 +4,7 @@ Clientes
 @stop
 @section('url_historial')
 <li>{{ link_to_route('home','Inicio') }}</li>
+<li>{{ link_to_route('clientes.index','Clientes') }}</li>
 <li>Cuentas Corrientes</li>
 @stop
 @section('contenido')

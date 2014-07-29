@@ -13,7 +13,7 @@
     <tr>
         <td>{{ $valor->Tipo or '' }}</td>
         <td>{{ $valor->item->cuenta->Cuenta or '' }}</td>
-        <td>{{ $valor->Cotiz or '' }}</td>
+        <td>{{ $ctacte->MonedaLocal or '' }}</td>
         <td>{{ $valor->Monto or '' }}</td>
     </tr>
     @endforeach
