@@ -10,6 +10,11 @@ class CobranzaItems extends Eloquent{
 	 */
 	protected $table = 'Cobranzas_Items';
 
+    public function cobranza()
+    {
+        return $this->belongTo('Cobranza');
+    }
+
     public function comprobante()
     {
         return $this->hasOne('CtaCteCliente','Id','IdComprobante');
@@ -20,10 +25,27 @@ class CobranzaItems extends Eloquent{
         return $this->hasOne('CuentaContable','Id','IdCuenta');
     }
 
+    public function efectivoMovimientos()
+    {
+        return $this->hasOne('EfectivoMovimientos','Id','IdComprobante');
+    }
+
     public function getImporteAttribute($value)
     {
         //setlocale(LC_MONETARY, 'it_IT');
         return money_format('%.2n', $value);
+    }
+
+    public function getIdCuentaAttribute($value)
+    {
+        $data = [
+            0=>'Total Comprobante',
+            1=>'Efectivo',
+            2=>'Documentos',
+            3=>'Cheques',
+        ];
+
+        return $data[$value];
     }
 
 

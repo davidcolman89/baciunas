@@ -63,7 +63,7 @@
         <div class="row show-grid">
             <div class="col-md-12">
                 @if(!empty($ctacte->IDCobranza))
-                    @include('ctasctes.comprobante.valores')
+                    @include('ctasctes.comprobante.items')
                 @else
                     @include('ctasctes.factura.items')
                 @endif

@@ -41,9 +41,11 @@ class CtasCtesClienteController extends \BaseController {
         $cliente = Cliente::find($ctacte->IdCliente);
 
         if(!empty($ctacte->IDCobranza)){
-            $items = $ctacte->cobranza->items()->get();
+            //Recibos
+            $items = $ctacte->cobranza->items()->orderBy('IdCuenta', 'DESC')->get();
             $valores = $ctacte->cobranza->valores()->get();
         }else{
+            //Facturas
             $items = $ctacte->factura->items()->get();
             $valores = array();
         }
