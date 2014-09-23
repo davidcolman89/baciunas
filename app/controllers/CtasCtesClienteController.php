@@ -2,6 +2,16 @@
 
 class CtasCtesClienteController extends \BaseController {
 
+    /**
+     * @var array
+     */
+    protected $tiposCuentas = [
+        0 => 'Total Comprobante',
+        1 => 'Efectivo',
+        2 => 'Documentos',
+        3 => 'Cheques',
+    ];
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -57,7 +67,8 @@ class CtasCtesClienteController extends \BaseController {
         }
 
         $layout = 'ctasctes.vista';
-        return View::make($layout,compact('ctacte','cliente','bCuentaMadre','items','valores'));
+        $tiposCuenta = $this->tiposCuentas;
+        return View::make($layout,compact('ctacte','cliente','bCuentaMadre','items','valores','tiposCuenta'));
 
 	}
 

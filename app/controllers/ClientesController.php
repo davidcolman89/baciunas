@@ -95,7 +95,7 @@ class ClientesController extends \BaseController {
     public function showAll()
     {
 
-        $clientes = Cliente::all(['Id as id','Razon as razon'])->toArray();
+        $clientes = Cliente::remember(1)->get(['Id as id','Razon as razon'])->toArray();
         $data = array('data' => $clientes);
 
         return $data;

@@ -131,7 +131,7 @@
                 "url": "{{URL::asset('datatables/json/dataTables.lang.es.json')}}"
             },
             "sDom":''
-        });
+        });1
     });
 </script>
 @stop

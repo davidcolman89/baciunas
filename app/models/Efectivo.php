@@ -15,4 +15,19 @@ class Efectivo extends Eloquent{
         return $this->belongTo('EfectivoMovimiento');
     }
 
+    public function getMonedaAttribute($value)
+    {
+        switch ($value)
+        {
+            case 1:
+                $value = 'Pesos';
+                break;
+            default:
+                break;
+        }
+
+        return $value;
+
+    }
+
 }

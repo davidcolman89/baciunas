@@ -3,12 +3,17 @@
 
 class CobranzaItems extends Eloquent{
 
-	/**
+    /**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
 	protected $table = 'Cobranzas_Items';
+
+    public function getTiposCuentas()
+    {
+        return $this->tiposCuentas;
+    }
 
     public function cobranza()
     {
@@ -36,17 +41,10 @@ class CobranzaItems extends Eloquent{
         return money_format('%.2n', $value);
     }
 
-    public function getIdCuentaAttribute($value)
-    {
-        $data = [
-            0=>'Total Comprobante',
-            1=>'Efectivo',
-            2=>'Documentos',
-            3=>'Cheques',
-        ];
-
-        return $data[$value];
-    }
+//    public function getTipoCuenta()
+//    {
+//        return $this->tiposCuentas[$this->attributes['IdCuenta']];
+//    }
 
 
 }
