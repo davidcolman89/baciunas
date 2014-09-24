@@ -12,11 +12,11 @@
     <tbody>
     @foreach ($items as $item)
     <tr>
-        <td>{{ $item->producto->Producto or '' }}</td>
-        <td>{{ $item->Contenedores  or '' }}</td>
-        <td>{{ $item->Kilos  or '' }}</td>
-        <td>{{ $item->NotaFactura  or '' }}</td>
-        <td>{{ $item->Neto  or ''}}</td>
+        <td>{{ $item['producto'] }}</td>
+        <td>{{ $item['contenedores'] }}</td>
+        <td>{{ $item['kilos'] }}</td>
+        <td>{{ $item['notaFactura'] }}</td>
+        <td>{{ $item['neto'] }}</td>
     </tr>
     @endforeach
     </tbody>
