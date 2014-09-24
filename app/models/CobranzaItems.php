@@ -35,16 +35,15 @@ class CobranzaItems extends Eloquent{
         return $this->hasOne('EfectivoMovimientos','Id','IdComprobante');
     }
 
+    public function ctaBancoMovimientos()
+    {
+        return $this->hasOne('CtaBancoMovimientos','ID','IdComprobante');
+    }
+
     public function getImporteAttribute($value)
     {
         //setlocale(LC_MONETARY, 'it_IT');
         return money_format('%.2n', $value);
     }
-
-//    public function getTipoCuenta()
-//    {
-//        return $this->tiposCuentas[$this->attributes['IdCuenta']];
-//    }
-
 
 }

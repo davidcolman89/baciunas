@@ -11,16 +11,10 @@
     <tbody>
     @foreach ($items as $item)
         <tr>
-            <td>{{ $tiposCuenta[$item->IdCuenta] }}</td>
-            @if($item->IdCuenta==1)
-                <td></td>
-            @elseif($item->IdCuenta == 2 or $item->IdCuenta == 3)
-                <td></td>
-            @else
-                <td></td>
-            @endif
-            <td>{{ $item->efectivoMovimientos->efectivo->Moneda }}</td>
-            <td>{{ $item->Importe or '' }}</td>
+            <td>{{$item['tipoCuenta']}}</td>
+            <td>{{$item['contenido']}}</td>
+            <td>{{$item['moneda']}}</td>
+            <td>{{$item['importe']}}</td>
         </tr>
     @endforeach
     </tbody>
