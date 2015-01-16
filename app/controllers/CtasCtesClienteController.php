@@ -183,9 +183,24 @@ class CtasCtesClienteController extends \BaseController
     public function showAll($idCliente)
     {
         $listado = array();
-        $ctasctes = CtaCteClienteVista::where('IdCliente', '=', $idCliente)->get();
-
+        $ctasctes = CtaCteClienteVista::where('IdCliente', '=', $idCliente)
+            ->orderBy('FechaIng', 'asc')
+            ->get();
+        $saldo = number_format(0, 4, '.', '');
+        $contador = 1;
         foreach ($ctasctes as $ctacte) {
+
+            $debe = ($ctacte->TotalDebe > 0) ? true : false;
+
+            if($debe) {
+                $saldo = $saldo + number_format($ctacte->TotalDebe, 4, '.', '');
+            } else {
+                $saldo = $saldo - number_format($ctacte->Totalhaber, 4, '.', '');
+            }
+
+            $cssClassSaldo = ($saldo > 0) ? 'negativo' : 'positivo';
+            $saldo = number_format($saldo, 4, '.', '');
+
             $listado[] = array(
                 'Id' => $ctacte->Id,
                 'TipoComp' => $ctacte->TipoComp,
@@ -195,7 +210,9 @@ class CtasCtesClienteController extends \BaseController
                 'TotalDebe' => $ctacte->TotalDebe,
                 'Haber' => $ctacte->Haber,
                 'TotalHaber' => $ctacte->Totalhaber,
+                'Saldo' => "<b class='{$cssClassSaldo}'>{$saldo}</b>",
             );
+            $contador++;
         }
 
 

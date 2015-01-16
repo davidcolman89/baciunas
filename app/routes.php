@@ -1,10 +1,9 @@
 <?php
 
-
-    Route::get('/', 'AuthController@showLogin');
-    Route::get('login', 'AuthController@showLogin');
-    // Validamos los datos de inicio de sesión.
-    Route::post('login', 'AuthController@postLogin');
+Route::get('/', 'AuthController@showLogin');
+Route::get('login', 'AuthController@showLogin');
+// Validamos los datos de inicio de sesión.
+Route::post('login', 'AuthController@postLogin');
 
 Route::group(array('before' => 'auth'), function () {
 

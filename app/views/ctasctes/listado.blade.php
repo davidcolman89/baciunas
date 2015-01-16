@@ -9,6 +9,14 @@ Cuenta Corriente
 <li>Cuenta Corriente</li>
 @stop
 @section('contenido')
+<style rel="stylesheet" type="text/css">
+    .positivo {
+        color: #000000;
+    }
+    .negativo {
+        color: #ff0000;
+    }
+</style>
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="tableCliCtaCte">
     <thead>
     <tr>
@@ -16,10 +24,9 @@ Cuenta Corriente
         <th># CtaCte</th>
         <th>TipoComp</th>
         <th>Fecha Ingreso</th>
-        <th>Debe</th>
         <th>Total Debe</th>
-        <th>Haber</th>
         <th>Total Haber</th>
+        <th>Saldo</th>
 
     </tr>
     </thead>
@@ -36,12 +43,12 @@ Cuenta Corriente
                 {"data" : "Id"},
                 {"data" : "TipoComp"},
                 {"data" : "FechaIng"},
-                {"data" : "Debe"},
                 {"data" : "TotalDebe"},
-                {"data" : "Haber"},
                 {"data" : "TotalHaber"},
+                {"data" : "Saldo"},
             ],
-            "order": [[ 0, "desc" ]],
+            /*"order": [[ 0, "desc" ]],*/
+            "ordering": false,
             "scrollX":true,
             "language": {
                 "url": "{{URL::asset('datatables/json/dataTables.lang.es.json')}}"
