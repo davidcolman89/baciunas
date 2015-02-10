@@ -1,31 +1,32 @@
 <?php
 
-class ClientesController extends \BaseController {
+class DocumentosTercerosController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
+	 * GET /documentosterceros
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		return View::make('clientes.listado');
+		return View::make('documetos_terceros.listado');
 	}
-
 
 	/**
 	 * Show the form for creating a new resource.
+	 * GET /documentosterceros/create
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-		return View::make('clientes.alta');
+		//
 	}
-
 
 	/**
 	 * Store a newly created resource in storage.
+	 * POST /documentosterceros
 	 *
 	 * @return Response
 	 */
@@ -34,31 +35,23 @@ class ClientesController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Display the specified resource.
+	 * GET /documentosterceros/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function show($id)
 	{
+		$documento = DocumentoTercero::find($id);
 
-        $estados = [
-            1=>['id'=>1,'estado'=>'Normal'],
-            2=>['id'=>2,'estado'=>'Suspendido'],
-            3=>['id'=>3,'estado'=>'Inactivo'],
-        ];
-
-        $cliente = Cliente::find($id);
-
-		return View::make('clientes.cliente',compact('cliente','estados'));
-
+		return View::make('documentos_terceros.view')->with(compact('documento'));
 	}
-
 
 	/**
 	 * Show the form for editing the specified resource.
+	 * GET /documentosterceros/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -68,9 +61,9 @@ class ClientesController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Update the specified resource in storage.
+	 * PUT /documentosterceros/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -80,9 +73,9 @@ class ClientesController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Remove the specified resource from storage.
+	 * DELETE /documentosterceros/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -91,17 +84,5 @@ class ClientesController extends \BaseController {
 	{
 		//
 	}
-
-    public function showAll()
-    {
-        $clientes = Cliente::remember(1)->get(['Id as id','Razon as razon'])->toArray();
-        $data = array('data' => $clientes);
-
-        return $data;
-
-    }
-
-
-
 
 }

@@ -97,6 +97,11 @@ class Cliente extends Eloquent
         return $this->hasOne('User', 'Id', 'cUsuario_Mod');
     }
 
+    public function documentoTercero()
+    {
+        return $this->belongsTo('DocumentoTercero', 'Id', 'CodCuenta');
+    }
+
     public function getEstadoAttribute($value)
     {
 
