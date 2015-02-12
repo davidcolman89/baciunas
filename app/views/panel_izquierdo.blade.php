@@ -37,13 +37,7 @@
             <ul>
                 <li><a href="{{ URL::route('clientes.index') }}">Clientes</a></li>
                 <li><a href="{{ URL::route('ctasCtesCli.index') }}">Cuentas Corrientes</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Altas</span><b
-                        class="collapse-sign"><em class="fa fa-plus-square-o"></em></b></a>
-            <ul>
-                <li><a href="{{ URL::route('clientes.create') }}">Clientes</a></li>
+                <li><a href="{{ URL::route('documentos_terceros.index') }}">Documentos de Terceros</a></li>
             </ul>
         </li>
     </ul>

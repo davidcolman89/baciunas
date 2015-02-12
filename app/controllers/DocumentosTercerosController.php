@@ -10,7 +10,7 @@ class DocumentosTercerosController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('documetos_terceros.listado');
+		return View::make('documentos_terceros.listado');
 	}
 
 	/**
@@ -83,6 +83,14 @@ class DocumentosTercerosController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function showAll()
+	{
+		$documentos = DocumentoTercero::with(['cliente', 'banco', 'estado'])->get();
+		$data = array('data' => $documentos);
+
+		return Response::json($data);
 	}
 
 }
