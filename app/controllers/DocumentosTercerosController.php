@@ -87,7 +87,7 @@ class DocumentosTercerosController extends \BaseController {
 
 	public function showAll()
 	{
-		$documentos = DocumentoTercero::with(['cliente', 'banco', 'estado'])->get();
+		$documentos = DocumentoTercero::with(['banco', 'estado'])->get()->toArray();
 		$data = array('data' => $documentos);
 
 		return Response::json($data);

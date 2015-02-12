@@ -36,7 +36,22 @@
                             <input type="text" class="form-control" placeholder="Estado del Documento"/>
                         </th>
                         <th class="hasinput" style="">
-                            <input type="text" class="form-control" placeholder=""/>
+                            <input type="text" class="form-control" placeholder="#Documento / Cheque"/>
+                        </th>
+                        <th class="hasinput" style="">
+                            <input type="text" class="form-control" placeholder="Fecha Ejecución"/>
+                        </th>
+                        <th class="hasinput" style="">
+                            <input type="text" class="form-control" placeholder="Banco"/>
+                        </th>
+                        <th class="hasinput" style="">
+                            <input type="text" class="form-control" placeholder="Monto"/>
+                        </th>
+                        <th class="hasinput" style="">
+                            <input type="text" class="form-control" placeholder="Cliente"/>
+                        </th>
+                        <th class="hasinput" style="">
+                            <input type="text" class="form-control" placeholder="#Cuenta Bancaria"/>
                         </th>
                     </tr>
                     <tr>
@@ -90,19 +105,9 @@
                             return full.estado.Estado;
                         }
                     },
+                    {"mData": "NroDocumento"},
                     {
-                        "mData": "FechaEje",
-                        "mRender": function(data, type, full){
-
-                            var sLink, sHref;
-
-                            sHref = ' href="clientes/'+ full.id +'"';
-
-                            sLink = (['<a ' + sHref + ' >',full.razon,'</a>']).join('');
-
-                            return sLink;
-
-                        }
+                        "mData": "FechaEje"
                     },
                     {
                         "mData": "banco",
@@ -110,13 +115,9 @@
                             return full.banco.Banco;
                         }
                     },
-                    {"mData": "NroDocumento"},
                     {"mData": "Monto"},
                     {
-                        "mData": "CodCuenta",
-                        "mRender": function(data, type, full) {
-                            return full.cliente.Razon;
-                        }
+                        "mData": "Titular"
                     },
                     {"mData": "NroCuenta"},
                 ],
